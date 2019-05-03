@@ -21,7 +21,7 @@
         distance = calcGeoDistance(position.latitude,position.longitude,21.312238,-157.838299,'mi');
         document.getElementById('text1').innerHTML = "You are " + distance.toFixed(5) +" mile(s) away";
         
-        if (distance <= 0.001) {
+        if (distance <= 0.008) {
           document.getElementById('text1').innerHTML = "X marks the spot!";
         }
         else {
