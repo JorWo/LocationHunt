@@ -1,0 +1,2 @@
+# LocationHunt
+Find the treasure!
