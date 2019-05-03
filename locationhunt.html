@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <script src="p5.min.js"></script>
+    <script src="p5.geolocation.js"></script>
+  </head>
+  <body>
+  <h1 id='text1'>Finding location...</h1>
+  <h1 id='text2'></h1>
+    <script>
+      var distance;
+      
+      function setup() {
+        if (geoCheck() == false) {
+          document.getElementById('text1').innerHTML = "Your device's GPS is disabled";
+        }
+        intervalCurrentPosition(positionPing,1000);
+        enableHighAccuracy: true;
+      }
+      
+      function positionPing(position) {
+        distance = calcGeoDistance(position.latitude,position.longitude,21.312238,-157.838299,'mi');
+        document.getElementById('text1').innerHTML = "You are " + distance.toFixed(5) +" mile(s) away";
+        
+        if (distance <= 0.001) {
+          document.getElementById('text1').innerHTML = "X marks the spot!";
+        }
+        else {
+          document.getElementById('text1').innerHTML = "You are " + distance.toFixed(5) +" mile(s) away";
+        }
+      }
+      
+    </script>
+  </body>
+</html>
